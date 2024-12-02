@@ -1,0 +1,17 @@
+{
+    "DefaultSkin": "Chestnut",
+    "HorseConfigs": {
+        "Sparta": {
+            "HorseSkin": "Andalusian",
+            "PrismaticHair": false,
+            "SaddleColor": "Black",
+            "FluteWhistle": true
+        },
+        "Daximus": {
+            "HorseSkin": "Cremello",
+            "PrismaticHair": true,
+            "SaddleColor": "Silver",
+            "FluteWhistle": false
+        }
+    }
+}

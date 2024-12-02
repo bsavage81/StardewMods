@@ -1,0 +1,6 @@
+G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\DifferentHorseSkins\DifferentHorseSkins\DifferentHorseSkins\bin\Debug\net6.0\DifferentHorseSkins.deps.json
+G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\DifferentHorseSkins\DifferentHorseSkins\DifferentHorseSkins\bin\Debug\net6.0\DifferentHorseSkins.dll
+G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\DifferentHorseSkins\DifferentHorseSkins\DifferentHorseSkins\obj\Debug\net6.0\DifferentHorseSkins.csproj.AssemblyReference.cache
+G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\DifferentHorseSkins\DifferentHorseSkins\DifferentHorseSkins\obj\Debug\net6.0\DifferentHorseSkins.GeneratedMSBuildEditorConfig.editorconfig
+G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\DifferentHorseSkins\DifferentHorseSkins\DifferentHorseSkins\obj\Debug\net6.0\DifferentHorseSkins.csproj.CoreCompileInputs.cache
+G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\DifferentHorseSkins\DifferentHorseSkins\DifferentHorseSkins\obj\Debug\net6.0\DifferentHorseSkins.dll

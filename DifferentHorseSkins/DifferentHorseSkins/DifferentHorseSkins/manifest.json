@@ -1,0 +1,15 @@
+{
+	"Name": "Different Horse Skins",
+	"Author": "BSavage81",
+	"Version": "1.0.0",
+	"Description": "Customize horse skins for each player in multiplayer, building on Elle's Cuter Horses.",
+	"UniqueID": "BSavage81.DifferentHorseSkins",
+	"EntryDll": "DifferentHorseSkins.dll",
+	"MinimumApiVersion": "4.0.0",
+	"Dependencies": [
+		{
+			"UniqueID": "spacechase0.GenericModConfigMenu",
+			"IsRequired": false
+		}
+	]
+}

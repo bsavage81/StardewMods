@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<AssemblyName>DifferentHorseSkins</AssemblyName>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<TargetFramework>net6.0</TargetFramework>
+		<!-- SMAPI requires .NET Framework 4.8 -->
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<LangVersion>latest</LangVersion>
+		<!-- Matches the latest supported language version -->
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="DifferentHorseSkins\desktop.ini\**" />
+	  <EmbeddedResource Remove="DifferentHorseSkins\desktop.ini\**" />
+	  <None Remove="DifferentHorseSkins\desktop.ini\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="desktop.ini" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- References to SMAPI and game libraries -->
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.3.2" />
+		<Reference Include="StardewModdingAPI">
+			<HintPath>C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\StardewModdingAPI.dll</HintPath>
+		</Reference>
+		<Reference Include="Stardew Valley">
+			<HintPath>C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Stardew Valley.dll</HintPath>
+		</Reference>
+		<Reference Include="MonoGame.Framework">
+			<HintPath>C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\MonoGame.Framework.dll</HintPath>
+		</Reference>
+		<Reference Include="xTile">
+			<HintPath>C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\xTile.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+</Project>

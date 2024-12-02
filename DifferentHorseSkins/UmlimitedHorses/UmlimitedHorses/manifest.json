@@ -1,0 +1,10 @@
+{
+    "Name": "Unlimited Stables",
+    "Author": "BSavage81",
+    "Version": "1.0.0",
+    "Description": "Allows single players to purchase unlimited stables, with custom naming and horse assignment.",
+    "UniqueID": "BSavage81.UnlimitedStables",
+    "EntryDll": "UnlimitedStables.dll",
+    "MinimumApiVersion": "3.13.0",
+    "UpdateKeys": [ "Nexus:YourModIDHere" ]
+}
