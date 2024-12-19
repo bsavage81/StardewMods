@@ -1,0 +1,24 @@
+{
+    "HorseConfigs": {
+        "Pumpkin Acres": {
+            "Daximus": {
+                "HorseSkin": "PintoBlonde",
+                "Hair": "Green",
+                "SaddleColor": "Green",
+                "MenuIcon": true
+            },
+            "Sparta": {
+                "HorseSkin": "Shadowmere",
+                "Hair": "Red",
+                "SaddleColor": "Grey",
+                "MenuIcon": true
+            }
+        }
+    },
+    "DefaultHorseConfig": {
+        "HorseSkin": "HolsteinerSilver",
+        "Hair": "Plain",
+        "SaddleColor": "Black",
+        "MenuIcon": true
+    }
+}

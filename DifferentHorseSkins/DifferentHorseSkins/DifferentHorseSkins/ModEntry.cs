@@ -120,6 +120,9 @@ namespace DifferentHorseSkins
                     this.RegisterModConfigMenu(api);
                 }
             };
+
+            // Register a method to respond to individual field changes
+            api.OnFieldChanged(this.ModManifest, OnFieldChanged);
         }
 
         private void RegisterModConfigMenu(IGenericModConfigMenuApi api)

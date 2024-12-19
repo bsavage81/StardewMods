@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "G:\\My Drive\\Stardew Valley Mods\\Stardew stuff\\CODE\\WorkshopMinecart\\WorkshopMinecart\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A8622B81-0283-45E9-AD77-8510A464917B}|WorkshopMinecart\\FarmBuildingMinecart.csproj|g:\\my drive\\stardew valley mods\\stardew stuff\\code\\workshopminecart\\workshopminecart\\workshopminecart\\modentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8622B81-0283-45E9-AD77-8510A464917B}|WorkshopMinecart\\FarmBuildingMinecart.csproj|solutionrelative:workshopminecart\\modentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8622B81-0283-45E9-AD77-8510A464917B}|WorkshopMinecart\\FarmBuildingMinecart.csproj|g:\\my drive\\stardew valley mods\\stardew stuff\\code\\workshopminecart\\workshopminecart\\workshopminecart\\icontentpatcherapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8622B81-0283-45E9-AD77-8510A464917B}|WorkshopMinecart\\FarmBuildingMinecart.csproj|solutionrelative:workshopminecart\\icontentpatcherapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IContentPatcherAPI.cs",
+              "DocumentMoniker": "G:\\My Drive\\Stardew Valley Mods\\Stardew stuff\\CODE\\WorkshopMinecart\\WorkshopMinecart\\WorkshopMinecart\\IContentPatcherAPI.cs",
+              "RelativeDocumentMoniker": "WorkshopMinecart\\IContentPatcherAPI.cs",
+              "ToolTip": "G:\\My Drive\\Stardew Valley Mods\\Stardew stuff\\CODE\\WorkshopMinecart\\WorkshopMinecart\\WorkshopMinecart\\IContentPatcherAPI.cs",
+              "RelativeToolTip": "WorkshopMinecart\\IContentPatcherAPI.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T21:56:45.475Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ModEntry.cs",
+              "DocumentMoniker": "G:\\My Drive\\Stardew Valley Mods\\Stardew stuff\\CODE\\WorkshopMinecart\\WorkshopMinecart\\WorkshopMinecart\\ModEntry.cs",
+              "RelativeDocumentMoniker": "WorkshopMinecart\\ModEntry.cs",
+              "ToolTip": "G:\\My Drive\\Stardew Valley Mods\\Stardew stuff\\CODE\\WorkshopMinecart\\WorkshopMinecart\\WorkshopMinecart\\ModEntry.cs*",
+              "RelativeToolTip": "WorkshopMinecart\\ModEntry.cs*",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAmwFQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T21:36:44.175Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

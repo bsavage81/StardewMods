@@ -1,0 +1,16 @@
+{
+    "Name": "Frog Friends Like Rain",
+    "Author": "neuralwiles and BSavage81 for rain behavior",
+    "Version": "3.0.3",
+    "Description": "Adds a variety of frog friends for your farm. Created for SDV 1.6.",
+    "UniqueID": "BSavage81.FrogFriendsLikeRain",
+    "EntryDll": "Frog Friends Like Rain.dll",
+    "UpdateKeys": [ "Nexus:20657" ],
+    "Dependencies": [
+        {
+            "UniqueID": "neuralwiles.FrogFriends",
+            "IsRequired": true
+        }
+    ]
+}
+

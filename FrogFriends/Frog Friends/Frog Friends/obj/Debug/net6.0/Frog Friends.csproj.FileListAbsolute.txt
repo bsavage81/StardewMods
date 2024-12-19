@@ -1,0 +1,8 @@
+G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\FrogFriends\Frog Friends\Frog Friends\bin\Debug\net6.0\Frog Friends.deps.json
+G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\FrogFriends\Frog Friends\Frog Friends\bin\Debug\net6.0\Frog Friends.dll
+G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\FrogFriends\Frog Friends\Frog Friends\obj\Debug\net6.0\Frog Friends.csproj.AssemblyReference.cache
+G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\FrogFriends\Frog Friends\Frog Friends\obj\Debug\net6.0\Frog Friends.GeneratedMSBuildEditorConfig.editorconfig
+G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\FrogFriends\Frog Friends\Frog Friends\obj\Debug\net6.0\Frog Friends.AssemblyInfoInputs.cache
+G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\FrogFriends\Frog Friends\Frog Friends\obj\Debug\net6.0\Frog Friends.AssemblyInfo.cs
+G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\FrogFriends\Frog Friends\Frog Friends\obj\Debug\net6.0\Frog Friends.csproj.CoreCompileInputs.cache
+G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\FrogFriends\Frog Friends\Frog Friends\obj\Debug\net6.0\Frog Friends.dll

@@ -1,0 +1,10 @@
+G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\WorkshopMinecart\WorkshopMinecart\WorkshopMinecart\bin\Debug\net6.0\FarmBuildingMinecart.deps.json
+G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\WorkshopMinecart\WorkshopMinecart\WorkshopMinecart\bin\Debug\net6.0\FarmBuildingMinecart.dll
+G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\WorkshopMinecart\WorkshopMinecart\WorkshopMinecart\bin\Debug\net6.0\ContentPatcher.dll
+G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\WorkshopMinecart\WorkshopMinecart\WorkshopMinecart\obj\Debug\net6.0\FarmBuildingMinecart.csproj.AssemblyReference.cache
+G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\WorkshopMinecart\WorkshopMinecart\WorkshopMinecart\obj\Debug\net6.0\FarmBuildingMinecart.GeneratedMSBuildEditorConfig.editorconfig
+G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\WorkshopMinecart\WorkshopMinecart\WorkshopMinecart\obj\Debug\net6.0\FarmBuildingMinecart.AssemblyInfoInputs.cache
+G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\WorkshopMinecart\WorkshopMinecart\WorkshopMinecart\obj\Debug\net6.0\FarmBuildingMinecart.AssemblyInfo.cs
+G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\WorkshopMinecart\WorkshopMinecart\WorkshopMinecart\obj\Debug\net6.0\FarmBuildingMinecart.csproj.CoreCompileInputs.cache
+G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\WorkshopMinecart\WorkshopMinecart\WorkshopMinecart\obj\Debug\net6.0\FarmBuil.35591B6D.Up2Date
+G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\WorkshopMinecart\WorkshopMinecart\WorkshopMinecart\obj\Debug\net6.0\FarmBuildingMinecart.dll

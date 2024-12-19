@@ -1,0 +1,8 @@
+G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\FrogFriends\Frog Friends\Frog Friends\bin\Debug\net6.0\Frog Friends Like Rain.deps.json
+G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\FrogFriends\Frog Friends\Frog Friends\bin\Debug\net6.0\Frog Friends Like Rain.dll
+G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\FrogFriends\Frog Friends\Frog Friends\obj\Debug\net6.0\Frog Friends Like Rain.csproj.AssemblyReference.cache
+G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\FrogFriends\Frog Friends\Frog Friends\obj\Debug\net6.0\Frog Friends Like Rain.GeneratedMSBuildEditorConfig.editorconfig
+G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\FrogFriends\Frog Friends\Frog Friends\obj\Debug\net6.0\Frog Friends Like Rain.AssemblyInfoInputs.cache
+G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\FrogFriends\Frog Friends\Frog Friends\obj\Debug\net6.0\Frog Friends Like Rain.AssemblyInfo.cs
+G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\FrogFriends\Frog Friends\Frog Friends\obj\Debug\net6.0\Frog Friends Like Rain.csproj.CoreCompileInputs.cache
+G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\FrogFriends\Frog Friends\Frog Friends\obj\Debug\net6.0\Frog Friends Like Rain.dll

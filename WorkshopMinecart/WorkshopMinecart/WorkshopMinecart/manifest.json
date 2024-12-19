@@ -1,0 +1,15 @@
+{
+    "Name": "Farm Building Minecart",
+    "Author": "BSavage81",
+    "Version": "1.0.0",
+    "Description": "Allows placing a functional minecart inside a farm building.",
+    "UniqueID": "BSavage81.FarmBuildingMinecart",
+    "EntryDll": "FarmBuildingMinecart.dll",
+    "MinimumApiVersion": "4.1.9",
+    "Dependencies": [
+        {
+            "UniqueID": "Pathoschild.ContentPatcher",
+            "IsRequired": "false"
+        }
+    ]
+}
