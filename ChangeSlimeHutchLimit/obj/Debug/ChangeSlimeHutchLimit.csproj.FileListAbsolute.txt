@@ -1,0 +1,9 @@
+C:\Users\beauj\Desktop\GITHUB Repositopries\Pathoschild\ChroniclerCherry\stardew-valley-mods\ChangeSlimeHutchLimit\bin\Debug\ChangeSlimeHutchLimit.deps.json
+C:\Users\beauj\Desktop\GITHUB Repositopries\Pathoschild\ChroniclerCherry\stardew-valley-mods\ChangeSlimeHutchLimit\bin\Debug\ChangeSlimeHutchLimit.dll
+C:\Users\beauj\Desktop\GITHUB Repositopries\Pathoschild\ChroniclerCherry\stardew-valley-mods\ChangeSlimeHutchLimit\obj\Debug\ChangeSlimeHutchLimit.csproj.AssemblyReference.cache
+C:\Users\beauj\Desktop\GITHUB Repositopries\Pathoschild\ChroniclerCherry\stardew-valley-mods\ChangeSlimeHutchLimit\obj\Debug\ChangeSlimeHutchLimit.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\beauj\Desktop\GITHUB Repositopries\Pathoschild\ChroniclerCherry\stardew-valley-mods\ChangeSlimeHutchLimit\obj\Debug\ChangeSlimeHutchLimit.AssemblyInfoInputs.cache
+C:\Users\beauj\Desktop\GITHUB Repositopries\Pathoschild\ChroniclerCherry\stardew-valley-mods\ChangeSlimeHutchLimit\obj\Debug\ChangeSlimeHutchLimit.AssemblyInfo.cs
+C:\Users\beauj\Desktop\GITHUB Repositopries\Pathoschild\ChroniclerCherry\stardew-valley-mods\ChangeSlimeHutchLimit\obj\Debug\ChangeSlimeHutchLimit.csproj.CoreCompileInputs.cache
+C:\Users\beauj\Desktop\GITHUB Repositopries\Pathoschild\ChroniclerCherry\stardew-valley-mods\ChangeSlimeHutchLimit\obj\Debug\ChangeSlimeHutchLimit.sourcelink.json
+C:\Users\beauj\Desktop\GITHUB Repositopries\Pathoschild\ChroniclerCherry\stardew-valley-mods\ChangeSlimeHutchLimit\obj\Debug\ChangeSlimeHutchLimit.dll
