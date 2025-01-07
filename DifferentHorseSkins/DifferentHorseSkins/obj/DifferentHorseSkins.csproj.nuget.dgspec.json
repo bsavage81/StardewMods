@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\My Drive\\Stardew Valley Mods\\Stardew stuff\\CODE\\DifferentHorseSkins\\DifferentHorseSkins\\DifferentHorseSkins.csproj": {}
+    "C:\\Users\\beauj\\Desktop\\GITHUB Repositopries\\bsavage81\\StardewMods\\DifferentHorseSkins\\DifferentHorseSkins\\DifferentHorseSkins.csproj": {}
   },
   "projects": {
-    "G:\\My Drive\\Stardew Valley Mods\\Stardew stuff\\CODE\\DifferentHorseSkins\\DifferentHorseSkins\\DifferentHorseSkins.csproj": {
+    "C:\\Users\\beauj\\Desktop\\GITHUB Repositopries\\bsavage81\\StardewMods\\DifferentHorseSkins\\DifferentHorseSkins\\DifferentHorseSkins.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\My Drive\\Stardew Valley Mods\\Stardew stuff\\CODE\\DifferentHorseSkins\\DifferentHorseSkins\\DifferentHorseSkins.csproj",
+        "projectUniqueName": "C:\\Users\\beauj\\Desktop\\GITHUB Repositopries\\bsavage81\\StardewMods\\DifferentHorseSkins\\DifferentHorseSkins\\DifferentHorseSkins.csproj",
         "projectName": "DifferentHorseSkins",
-        "projectPath": "G:\\My Drive\\Stardew Valley Mods\\Stardew stuff\\CODE\\DifferentHorseSkins\\DifferentHorseSkins\\DifferentHorseSkins.csproj",
+        "projectPath": "C:\\Users\\beauj\\Desktop\\GITHUB Repositopries\\bsavage81\\StardewMods\\DifferentHorseSkins\\DifferentHorseSkins\\DifferentHorseSkins.csproj",
         "packagesPath": "C:\\Users\\beauj\\.nuget\\packages\\",
-        "outputPath": "G:\\My Drive\\Stardew Valley Mods\\Stardew stuff\\CODE\\DifferentHorseSkins\\DifferentHorseSkins\\obj\\",
+        "outputPath": "C:\\Users\\beauj\\Desktop\\GITHUB Repositopries\\bsavage81\\StardewMods\\DifferentHorseSkins\\DifferentHorseSkins\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
