@@ -637,7 +637,7 @@ namespace DifferentHorseSkins
             }
         }
 
-        private (string farmName, string HorseName) DeriveFarmAndHorseNamesFromAssets()
+        private (string FarmName, string HorseName) DeriveFarmAndHorseNamesFromAssets()
         {
             string generatedPath = Path.Combine(this.Helper.DirectoryPath, "assets/Generated");
 

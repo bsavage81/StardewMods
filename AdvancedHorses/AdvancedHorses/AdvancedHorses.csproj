@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<AssemblyName>DifferentHorseSkins</AssemblyName>
+		<AssemblyName>AdvancedHorses</AssemblyName>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<TargetFramework>net6.0</TargetFramework>
 		<!-- SMAPI requires .NET Framework 4.8 -->
@@ -13,12 +13,12 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <Compile Remove="DifferentHoresSkins [CP]\**" />
-	  <Compile Remove="DifferentHorseSkins\desktop.ini\**" />
-	  <EmbeddedResource Remove="DifferentHoresSkins [CP]\**" />
-	  <EmbeddedResource Remove="DifferentHorseSkins\desktop.ini\**" />
-	  <None Remove="DifferentHoresSkins [CP]\**" />
-	  <None Remove="DifferentHorseSkins\desktop.ini\**" />
+	  <Compile Remove="AdvancedHorses [CP]\**" />
+	  <Compile Remove="AdvancedHorses\desktop.ini\**" />
+	  <EmbeddedResource Remove="AdvancedHorses [CP]\**" />
+	  <EmbeddedResource Remove="AdvancedHorses\desktop.ini\**" />
+	  <None Remove="AdvancedHorses [CP]\**" />
+	  <None Remove="AdvancedHorses\desktop.ini\**" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -29,12 +29,6 @@
 		<!-- References to SMAPI and game libraries -->
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.3.2" />
-		<Reference Include="ContentPatcher">
-		  <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Mods\Stardrop Installed Mods\ContentPatcher\ContentPatcher.dll</HintPath>
-		</Reference>
-		<Reference Include="NPCMapLocations">
-		  <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Mods\Stardrop Installed Mods\NPCMapLocations\NPCMapLocations.dll</HintPath>
-		</Reference>
 		<Reference Include="StardewModdingAPI">
 			<HintPath>C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\StardewModdingAPI.dll</HintPath>
 		</Reference>
