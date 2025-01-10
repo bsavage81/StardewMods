@@ -12,14 +12,12 @@ namespace AdvancedHorses.Managers
         IMonitor monitor,
         ModConfig config,
         ConfigManager ConfigManager,
-        MultiplayerHandler multiplayerHandler,
-        HorseManager horseManager)
+        MultiplayerHandler multiplayerHandler)
     {
         private readonly IManifest _modManifest = modManifest;
         private readonly IMonitor _monitor = monitor;
         private readonly IModHelper _helper = helper;
         private readonly ModConfig _config = config;
-        private readonly HorseManager _horseManager = horseManager;
         private readonly ConfigManager _ConfigManager = ConfigManager;
         private readonly MultiplayerHandler _multiplayerHandler = multiplayerHandler;
 

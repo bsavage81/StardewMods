@@ -14,21 +14,11 @@ using AdvancedHorses.Config;
 namespace AdvancedHorses.Managers
 {
     public class HorseManager(
-    IManifest modManifest,
-    IModHelper helper,
-    IMonitor monitor,
-    ModConfig config,
-    ConfigManager ConfigManager,
-    MultiplayerHandler multiplayerHandler,
-    HorseManager horseManager)
+        IMonitor monitor, IModHelper helper, ModConfig config)
     {
-        private readonly IManifest _modManifest = modManifest;
         private readonly IMonitor _monitor = monitor;
         private readonly IModHelper _helper = helper;
         private readonly ModConfig _config = config;
-        private readonly HorseManager _horseManager = horseManager;
-        private readonly ConfigManager _ConfigManager = ConfigManager;
-        private readonly MultiplayerHandler _multiplayerHandler = multiplayerHandler;
 
         public void ProcessHorses()
         {

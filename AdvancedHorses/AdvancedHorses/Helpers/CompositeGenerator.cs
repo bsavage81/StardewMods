@@ -10,21 +10,11 @@ using AdvancedHorses.Managers;
 using AdvancedHorses.Config;
 
 public class CompositeGenerator(
-    IManifest modManifest,
-    IModHelper helper,
-    IMonitor monitor,
-    ModConfig config,
-    ConfigManager ConfigManager,
-    MultiplayerHandler multiplayerHandler,
-    HorseManager horseManager)
+    IMonitor monitor, IModHelper helper)
+
 {
-    private readonly IManifest _modManifest = modManifest;
     private readonly IMonitor _monitor = monitor;
     private readonly IModHelper _helper = helper;
-    private readonly ModConfig _config = config;
-    private readonly HorseManager _horseManager = horseManager;
-    private readonly ConfigManager _ConfigManager = ConfigManager;
-    private readonly MultiplayerHandler _multiplayerHandler = multiplayerHandler;
 
     public void GenerateAndSaveCompositeIcon(
         string farmName,
