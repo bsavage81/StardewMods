@@ -29,12 +29,6 @@
 		<!-- References to SMAPI and game libraries -->
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.3.2" />
-		<Reference Include="ContentPatcher">
-		  <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Mods\Stardrop Installed Mods\ContentPatcher\ContentPatcher.dll</HintPath>
-		</Reference>
-		<Reference Include="NPCMapLocations">
-		  <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Mods\Stardrop Installed Mods\NPCMapLocations\NPCMapLocations.dll</HintPath>
-		</Reference>
 		<Reference Include="StardewModdingAPI">
 			<HintPath>C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\StardewModdingAPI.dll</HintPath>
 		</Reference>

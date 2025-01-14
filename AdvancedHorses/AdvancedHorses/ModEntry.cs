@@ -4,6 +4,7 @@ using AdvancedHorses.Managers;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
+using System;
 
 namespace AdvancedHorses
 {
@@ -21,7 +22,7 @@ namespace AdvancedHorses
         public override void Entry(IModHelper helper)
         {
             // Load configuration
-            Config = helper.ReadConfig<ModConfig>() ?? new ModConfig();
+            this.Config = helper.ReadConfig<ModConfig>() ?? new ModConfig();
 
             // Initialize components in the correct order
             _assetLoader = new AssetLoader(Monitor, helper);
@@ -29,13 +30,13 @@ namespace AdvancedHorses
 
             _compositeGenerator = new CompositeGenerator(Monitor, helper);
 
-            _horseManager = new HorseManager(Monitor, helper, Config);
+            _horseManager = new HorseManager(Monitor, helper, Config, _assetLoader);
 
             _configManager = new ConfigManager(Monitor, helper, Config, _compositeGenerator, _assetLoader, _horseManager);
 
-            _multiplayerHandler = new MultiplayerHandler(helper, Monitor, Config, _horseManager, _configManager);
+            _multiplayerHandler = new MultiplayerHandler(this.ModManifest, helper, Monitor, Config, _configManager, _horseManager);
 
-            _gmcmHandler = new GmcmHandler(this.ModManifest, helper, Monitor, Config, _configManager, _multiplayerHandler);
+            _gmcmHandler = new GmcmHandler(this.ModManifest, helper, Monitor, Config, _configManager, _horseManager, _multiplayerHandler);
 
             // Register event handlers
                 // Gameloop Events
@@ -46,9 +47,16 @@ namespace AdvancedHorses
             helper.Events.Multiplayer.PeerConnected += OnPeerConnected;
             helper.Events.Multiplayer.ModMessageReceived += OnPlayerConfigUpdateReceived;
 
+            // Register Commands
+            this.Helper.ConsoleCommands.Add("refresh_horses", "Refresh all horse configurations and appearances.", (command, args) =>
+            {
+                _configManager.InitializeOrUpdateHorseConfigs(); // Ensure configs are up-to-date
+                _horseManager.ProcessHorses(); // Reapply all configurations
+                this.Monitor.Log("Horse configurations refreshed.", LogLevel.Info);
+            });
 
         }
-        private void OnGameLaunched(object sender, GameLaunchedEventArgs e)
+            private void OnGameLaunched(object sender, GameLaunchedEventArgs e)
         {
             _gmcmHandler.SetupModConfigMenu();
         }
@@ -87,7 +95,7 @@ namespace AdvancedHorses
             }
         }
 
-        private void OnModMessageReceived(object sender, ModMessageReceivedEventArgs e)
+        public void OnModMessageReceived(object sender, ModMessageReceivedEventArgs e)
         {
             if(e.FromModID != this.ModManifest.UniqueID)
                 return;
@@ -95,13 +103,12 @@ namespace AdvancedHorses
             // Potential future logging or preprocessing
             this.Monitor.Log($"Received message of type '{e.Type}' from mod '{e.FromModID}'.", LogLevel.Debug);
 
-            _multiplayerHandler.OnMessageReceived(e);
+            _multiplayerHandler.OnMessageReceived(this, e);
         }
 
-        private void OnPlayerConfigUpdateReceived(object sender, ModMessageReceivedEventArgs e)
+        public void OnPlayerConfigUpdateReceived(object sender, ModMessageReceivedEventArgs e)
         {
-            _multiplayerHandler.OnPlayerConfigUpdateReceived(e);
+            _multiplayerHandler.OnPlayerConfigUpdateReceived(this, e);
         }
-
     }
 }

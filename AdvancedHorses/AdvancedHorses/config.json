@@ -1,22 +1,31 @@
 {
-  "HorseConfigs": {
-    "Pumpkin Acres": {
-      "Sparta": {
-        "BaseSkin": "SolidBlack",
-        "Hair": "Red",
-        "SaddleColor": "Silver",
-        "Pattern": "None",
-        "MenuIcon": true
-      },
-      "Daximus": {
-        "BaseSkin": "PintoBlonde",
-        "Hair": "Green",
-        "SaddleColor": "Green",
-        "Pattern": "None",
-        "MenuIcon": true
-      }
-    }
-  },
+    "HorseConfigs": {
+        "DefaultFarm": {
+            "DefaultHorse": {
+                "BaseSkin": "Vanilla",
+                "Hair": "Plain",
+                "SaddleColor": "Brown",
+                "Pattern": "None",
+                "MenuIcon": true
+            }
+        },
+        "Pumpkin Acres": {
+            "Sparta": {
+                "BaseSkin": "SolidBlack",
+                "Hair": "Red",
+                "SaddleColor": "Silver",
+                "Pattern": "None",
+                "MenuIcon": true
+            },
+            "Daximus": {
+                "BaseSkin": "PintoBlonde",
+                "Hair": "Green",
+                "SaddleColor": "Green",
+                "Pattern": "None",
+                "MenuIcon": true
+            }
+        }
+    },
   "DefaultHorseConfig": {
     "BaseSkin": "VoidPinto",
     "Hair": "Plain",

@@ -1,10 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "0CXGg7dEdzc=",
-  "success": true,
-  "projectFilePath": "C:\\Users\\beauj\\Desktop\\GITHUB Repositopries\\Pathoschild\\ChroniclerCherry\\stardew-valley-mods\\ChangeSlimeHutchLimit\\ChangeSlimeHutchLimit.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\beauj\\.nuget\\packages\\pathoschild.stardew.modbuildconfig\\4.3.2\\pathoschild.stardew.modbuildconfig.4.3.2.nupkg.sha512"
-  ],
-  "logs": []
+  "dgSpecHash": "NdlAfDhlIdc=",
+  "success": false,
+  "projectFilePath": "C:\\Users\\beauj\\Desktop\\GITHUB Repositopries\\bsavage81\\StardewMods\\ChangeSlimeHutchLimit\\ChangeSlimeHutchLimit.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1105",
+      "level": "Error",
+      "message": "Unable to read project information for 'ChangeSlimeHutchLimit': Invalid framework identifier ''."
+    }
+  ]
 }

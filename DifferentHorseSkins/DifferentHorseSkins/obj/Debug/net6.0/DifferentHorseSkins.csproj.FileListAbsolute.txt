@@ -13,7 +13,13 @@ G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\DifferentHorseSkins\Different
 G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\DifferentHorseSkins\DifferentHorseSkins\obj\Debug\net6.0\DifferentHorseSkins.csproj.CoreCompileInputs.cache
 G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\DifferentHorseSkins\DifferentHorseSkins\obj\Debug\net6.0\Differen.AE29E4B7.Up2Date
 G:\My Drive\Stardew Valley Mods\Stardew stuff\CODE\DifferentHorseSkins\DifferentHorseSkins\obj\Debug\net6.0\DifferentHorseSkins.dll
+C:\Users\beauj\Desktop\GITHUB Repositopries\bsavage81\StardewMods\DifferentHorseSkins\DifferentHorseSkins\bin\Debug\net6.0\DifferentHorseSkins.deps.json
+C:\Users\beauj\Desktop\GITHUB Repositopries\bsavage81\StardewMods\DifferentHorseSkins\DifferentHorseSkins\bin\Debug\net6.0\DifferentHorseSkins.dll
+C:\Users\beauj\Desktop\GITHUB Repositopries\bsavage81\StardewMods\DifferentHorseSkins\DifferentHorseSkins\bin\Debug\net6.0\ContentPatcher.dll
+C:\Users\beauj\Desktop\GITHUB Repositopries\bsavage81\StardewMods\DifferentHorseSkins\DifferentHorseSkins\bin\Debug\net6.0\NPCMapLocations.dll
 C:\Users\beauj\Desktop\GITHUB Repositopries\bsavage81\StardewMods\DifferentHorseSkins\DifferentHorseSkins\obj\Debug\net6.0\DifferentHorseSkins.csproj.AssemblyReference.cache
 C:\Users\beauj\Desktop\GITHUB Repositopries\bsavage81\StardewMods\DifferentHorseSkins\DifferentHorseSkins\obj\Debug\net6.0\DifferentHorseSkins.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\beauj\Desktop\GITHUB Repositopries\bsavage81\StardewMods\DifferentHorseSkins\DifferentHorseSkins\obj\Debug\net6.0\DifferentHorseSkins.csproj.CoreCompileInputs.cache
 C:\Users\beauj\Desktop\GITHUB Repositopries\bsavage81\StardewMods\DifferentHorseSkins\DifferentHorseSkins\obj\Debug\net6.0\DifferentHorseSkins.sourcelink.json
+C:\Users\beauj\Desktop\GITHUB Repositopries\bsavage81\StardewMods\DifferentHorseSkins\DifferentHorseSkins\obj\Debug\net6.0\Differen.AE29E4B7.Up2Date
+C:\Users\beauj\Desktop\GITHUB Repositopries\bsavage81\StardewMods\DifferentHorseSkins\DifferentHorseSkins\obj\Debug\net6.0\DifferentHorseSkins.dll

@@ -14,11 +14,12 @@ using AdvancedHorses.Config;
 namespace AdvancedHorses.Managers
 {
     public class HorseManager(
-        IMonitor monitor, IModHelper helper, ModConfig config)
+        IMonitor monitor, IModHelper helper, ModConfig config, AssetLoader assetLoader)
     {
         private readonly IMonitor _monitor = monitor;
         private readonly IModHelper _helper = helper;
         private readonly ModConfig _config = config;
+        private readonly AssetLoader _assetLoader = assetLoader;
 
         public void ProcessHorses()
         {
@@ -29,7 +30,8 @@ namespace AdvancedHorses.Managers
                 this._monitor.Log($"No configuration found for farm '{farmName}'. Skipping.", LogLevel.Warn);
                 return;
             }
-            foreach (var horse in GetHorses())
+
+            foreach (var horse in this.GetAllHorses())
             {
                 string horseName = horse.Name;
 
@@ -79,14 +81,10 @@ namespace AdvancedHorses.Managers
 
         public string GetCurrentFarmName()
         {
-            if (Game1.player?.farmName?.Value != null)
-                return Game1.player.farmName.Value;
-
-            _monitor.Log("Farm name is null. Returning 'DefaultFarm' as fallback.", LogLevel.Warn);
-            return "DefaultFarm";
+            return Game1.player.farmName.Value;
         }
 
-        public List<Horse> GetHorses()
+        public List<Horse> GetAllHorses()
         {
             List<Horse> horses = new List<Horse>();
 
@@ -100,6 +98,33 @@ namespace AdvancedHorses.Managers
                     {
                         horses.Add(horse);
                     }
+                }
+            }
+
+            // Fallback: Use filenames if no horses are found
+            if (!horses.Any())
+            {
+                this._monitor.Log("No horses found in the Farm location. Falling back to generated asset filenames.", LogLevel.Warn);
+                var (farmName, horseName) = _assetLoader.DeriveFarmAndHorseNamesFromAssets();
+
+                if (!string.IsNullOrEmpty(horseName))
+                {
+                    Guid horseId = Guid.NewGuid(); // Generate a unique ID for the mock horse
+                    int xTile = 0; // Placeholder tile position
+                    int yTile = 0; // Placeholder tile position
+
+                    // Create a mock horse object
+                    Horse mockHorse = new Horse(horseId, xTile, yTile)
+                    {
+                        Name = horseName,
+                        Sprite = new AnimatedSprite("Animals/horse", 0, 32, 32) // Placeholder sprite
+                    };
+
+                    horses.Add(mockHorse);
+                }
+                else
+                {
+                    this._monitor.Log("No valid horse entries found in filenames. Returning an empty list.", LogLevel.Warn);
                 }
             }
 

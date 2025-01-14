@@ -20,59 +20,43 @@ namespace AdvancedHorses.Managers
 
         public void InitializeOrUpdateHorseConfigs()
         {
-            if (_config == null || _horseManager == null || _assetLoader == null)
-            {
-                _monitor.Log("One or more dependencies are not initialized. Aborting InitializeOrUpdateHorseConfigs.", LogLevel.Error);
-                return;
-            }
-
             string farmName = _horseManager.GetCurrentFarmName();
-            if (string.IsNullOrEmpty(farmName))
+
+            if (!this._config.HorseConfigs.ContainsKey(farmName))
             {
-                farmName = "DefaultFarm";
-                _monitor.Log("Farm name is null or empty. Using fallback 'DefaultFarm'.", LogLevel.Warn);
+                this._config.HorseConfigs[farmName] = new Dictionary<string, HorseConfig>();
             }
 
-            if (!_config.HorseConfigs.ContainsKey(farmName))
-            {
-                _config.HorseConfigs[farmName] = new Dictionary<string, HorseConfig>();
-            }
-
-            var horses = _horseManager.GetHorses();
-            if (horses == null || horses.Count == 0)
-            {
-                _monitor.Log("No horses found. Skipping configuration update.", LogLevel.Warn);
-                return;
-            }
-
-            foreach (var horse in horses)
+            foreach (var horse in _horseManager.GetAllHorses())
             {
                 string horseName = horse.Name;
 
-                if (!_config.HorseConfigs[farmName].ContainsKey(horseName))
+                if (!this._config.HorseConfigs[farmName].ContainsKey(horseName))
                 {
-                    _config.HorseConfigs[farmName][horseName] = new HorseConfig
+                    this._config.HorseConfigs[farmName][horseName] = new HorseConfig
                     {
-                        BaseSkin = _config.DefaultHorseConfig.BaseSkin,
-                        Hair = _config.DefaultHorseConfig.Hair,
-                        SaddleColor = _config.DefaultHorseConfig.SaddleColor,
-                        MenuIcon = _config.DefaultHorseConfig.MenuIcon
+                        BaseSkin = this._config.DefaultHorseConfig.BaseSkin,
+                        Pattern = this._config.DefaultHorseConfig.Pattern,
+                        Hair = this._config.DefaultHorseConfig.Hair,
+                        SaddleColor = this._config.DefaultHorseConfig.SaddleColor,
+                        MenuIcon = this._config.DefaultHorseConfig.MenuIcon
                     };
 
-                    _monitor.Log($"Added config for horse '{horseName}' on farm '{farmName}'.", LogLevel.Debug);
+                    this._monitor.Log($"Added config for horse '{horseName}' on farm '{farmName}'.", LogLevel.Debug);
                 }
 
-                string baseSpritePath = _assetLoader.GetAssetPath("assets/Base", "Base_", _config.HorseConfigs[farmName][horseName].BaseSkin) ?? "DefaultPath";
-                string patternOverlayPath = _assetLoader.GetAssetPath("assets/Patterns", "Pattern_", _config.HorseConfigs[farmName][horseName].Pattern) ?? "DefaultPath";
-                string hairOverlayPath = _assetLoader.GetAssetPath("assets/Hair", "Hair_", _config.HorseConfigs[farmName][horseName].Hair) ?? "DefaultPath";
-                string saddleOverlayPath = _assetLoader.GetAssetPath("assets/Saddles", "Saddle_", _config.HorseConfigs[farmName][horseName].SaddleColor) ?? "DefaultPath";
+                // Generate composite image
+                string baseSpritePath = _assetLoader.GetAssetPath("assets", "Base", "Base_", this._config.HorseConfigs[farmName][horseName].BaseSkin);
+                string patternOverlayPath = _assetLoader.GetAssetPath("assets", "Patterns", "Pattern_", this._config.HorseConfigs[farmName][horseName].Pattern);
+                string hairOverlayPath = _assetLoader.GetAssetPath("assets", "Hair", "Hair_", this._config.HorseConfigs[farmName][horseName].Hair);
+                string saddleOverlayPath = _assetLoader.GetAssetPath("assets", "Saddles", "Saddle_", this._config.HorseConfigs[farmName][horseName].SaddleColor);
                 string outputPath = Path.Combine(_helper.DirectoryPath, $"assets/Generated/{farmName}_{horseName}.png");
-
                 _compositeGenerator.GenerateAndSaveCompositeIcon(horseName, farmName, baseSpritePath, patternOverlayPath, hairOverlayPath, saddleOverlayPath, outputPath);
             }
 
-            _helper.WriteConfig(_config);
+            this._helper.WriteConfig(this._config);
         }
+
 
         public Dictionary<string, HorseConfig> GetHorseConfigs(string farmName)
         {

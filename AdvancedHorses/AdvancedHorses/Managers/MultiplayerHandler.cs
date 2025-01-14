@@ -6,20 +6,28 @@ using System.Collections.Generic;
 
 namespace AdvancedHorses.Managers
 {
-    public class MultiplayerHandler(IModHelper helper, IMonitor monitor, ModConfig config, HorseManager horseManager, ConfigManager ConfigManager)
+    public class MultiplayerHandler(
+        IManifest modManifest,
+        IModHelper helper,
+        IMonitor monitor,
+        ModConfig config,
+        ConfigManager ConfigManager,
+        HorseManager horseManager)
     {
+        private readonly IManifest _modManifest = modManifest;
         private readonly IMonitor _monitor = monitor;
         private readonly IModHelper _helper = helper;
-        private readonly ModConfig _config = config;
+        private readonly ConfigManager _configManager = ConfigManager;
         private readonly HorseManager _horseManager = horseManager;
-        private readonly ConfigManager _ConfigManager = ConfigManager;
+
+        public ModConfig _config = config;
 
         public void BroadcastHorseConfig()
         {
             if (!Context.IsMainPlayer) return;
 
             string farmName = Game1.player.farmName.Value ?? "Unknown";
-            if (_config.HorseConfigs.TryGetValue(farmName, out var horseConfigs))
+            if (this._config.HorseConfigs.TryGetValue(farmName, out var horseConfigs))
             {
                 var message = new HorseConfigSyncMessage
                 {
@@ -27,28 +35,18 @@ namespace AdvancedHorses.Managers
                     HorseConfigs = horseConfigs
                 };
 
-                _helper.Multiplayer.SendMessage(
+                this._helper.Multiplayer.SendMessage(
                     message: message,
                     messageType: "HorseConfigSync",
-                    modIDs: new[] { _helper.ModRegistry.ModID }
+                    modIDs: new[] { this._modManifest.UniqueID }
                 );
 
-                _monitor.Log($"Broadcasted horse configurations for farm '{farmName}' to connected players.", LogLevel.Info);
+                this._monitor.Log($"Broadcasted horse configurations for farm '{farmName}' to connected players.", LogLevel.Info);
             }
-        }
 
-        public void OnMessageReceived(ModMessageReceivedEventArgs e)
-        {
-            if (e.FromModID != _helper.ModRegistry.ModID || e.Type != "HorseConfigSync") return;
+            this._configManager.InitializeOrUpdateHorseConfigs();
+            this._horseManager.ProcessHorses();
 
-            var message = e.ReadAs<HorseConfigSyncMessage>();
-            _monitor.Log($"Received horse configuration for farm '{message.FarmName}' from host.", LogLevel.Info);
-
-            _config.HorseConfigs[message.FarmName] = message.HorseConfigs;
-
-            // Delegate to HorseManager
-            _ConfigManager.InitializeOrUpdateHorseConfigs();
-            _horseManager.ProcessHorses();
         }
 
         public void NotifyHostOfConfigChange()
@@ -56,7 +54,7 @@ namespace AdvancedHorses.Managers
             if (Context.IsMainPlayer) return;
 
             string farmName = Game1.player.farmName.Value ?? "Unknown";
-            if (_config.HorseConfigs.TryGetValue(farmName, out var horseConfigs))
+            if (this._config.HorseConfigs.TryGetValue(farmName, out var horseConfigs))
             {
                 var message = new HorseConfigSyncMessage
                 {
@@ -64,33 +62,43 @@ namespace AdvancedHorses.Managers
                     HorseConfigs = horseConfigs
                 };
 
-                _helper.Multiplayer.SendMessage(
+                this._helper.Multiplayer.SendMessage(
                     message: message,
                     messageType: "HorseConfigUpdate",
-                    modIDs: new[] { _helper.ModRegistry.ModID }
+                    modIDs: new[] { this._modManifest.UniqueID }
                 );
 
-                _monitor.Log($"Sent updated horse configurations for farm '{farmName}' to the host.", LogLevel.Info);
+                this._monitor.Log($"Sent updated horse configurations for farm '{farmName}' to the host.", LogLevel.Info);
             }
         }
 
-        public void OnPlayerConfigUpdateReceived(ModMessageReceivedEventArgs e)
+        public void OnMessageReceived(object sender, ModMessageReceivedEventArgs e)
         {
-            if (!Context.IsMainPlayer || e.FromModID != _helper.ModRegistry.ModID || e.Type != "HorseConfigUpdate") return;
+            if (e.FromModID != this._modManifest.UniqueID || e.Type != "HorseConfigSync") return;
 
             var message = e.ReadAs<HorseConfigSyncMessage>();
-            _monitor.Log($"Received updated horse configuration for farm '{message.FarmName}' from player.", LogLevel.Info);
+            this._monitor.Log($"Received horse configuration for farm '{message.FarmName}' from host.", LogLevel.Info);
 
-            _config.HorseConfigs[message.FarmName] = message.HorseConfigs;
-
-            // Re-broadcast updated config to all players
-            BroadcastHorseConfig();
+            this._config.HorseConfigs[message.FarmName] = message.HorseConfigs;
+            this._configManager.InitializeOrUpdateHorseConfigs();
+            this._horseManager.ProcessHorses();
         }
-    }
 
-    public class HorseConfigSyncMessage
-    {
-        public string FarmName { get; set; }
-        public Dictionary<string, HorseConfig> HorseConfigs { get; set; }
+        public void OnPlayerConfigUpdateReceived(object sender, ModMessageReceivedEventArgs e)
+        {
+            if (!Context.IsMainPlayer || e.FromModID != this._modManifest.UniqueID || e.Type != "HorseConfigUpdate") return;
+
+            var message = e.ReadAs<HorseConfigSyncMessage>();
+            this._monitor.Log($"Received updated horse configuration for farm '{message.FarmName}' from player.", LogLevel.Info);
+
+            this._config.HorseConfigs[message.FarmName] = message.HorseConfigs;
+            this.BroadcastHorseConfig(); // Re-broadcast to all players
+        }
+
+        public class HorseConfigSyncMessage
+        {
+            public string FarmName { get; set; }
+            public Dictionary<string, HorseConfig> HorseConfigs { get; set; }
+        }
     }
 }
