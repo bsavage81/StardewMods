@@ -1,60 +1,91 @@
 using AdvancedHorses.Config;
 using AdvancedHorses.Helpers;
 using StardewModdingAPI;
-using StardewValley.Characters;
-using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 
 namespace AdvancedHorses.Managers
 {
-    public class ConfigManager(IMonitor monitor, IModHelper helper, ModConfig config, CompositeGenerator compositeGenerator, AssetLoader assetLoader, HorseManager horseManager)
+    public class ConfigManager(IMonitor monitor, IModHelper helper, ModConfig config, TextureManager compositeGenerator, AssetHelper assetLoader)
     {
         private readonly IMonitor _monitor = monitor;
         private readonly IModHelper _helper = helper;
-        private readonly CompositeGenerator _compositeGenerator = compositeGenerator;
+        private readonly TextureManager _compositeGenerator = compositeGenerator;
         private readonly ModConfig _config = config;
-        private readonly AssetLoader _assetLoader = assetLoader;
-        private readonly HorseManager _horseManager = horseManager;
+        private readonly AssetHelper _assetLoader = assetLoader;
 
         public void InitializeOrUpdateHorseConfigs()
         {
-            string farmName = _horseManager.GetCurrentFarmName();
+            var (farmName, horses) = _assetLoader.GetFarmAndHorses();
 
-            if (!this._config.HorseConfigs.ContainsKey(farmName))
+            // Ensure the farm exists in the HorseConfigs dictionary
+            if (!_config.HorseConfigs.ContainsKey(farmName))
             {
-                this._config.HorseConfigs[farmName] = new Dictionary<string, HorseConfig>();
+                _config.HorseConfigs[farmName] = new Dictionary<string, HorseConfig>();
             }
 
-            foreach (var horse in _horseManager.GetAllHorses())
+            // Log existing farm and horse configurations
+            foreach (var entry in _config.HorseConfigs)
+            {
+                string configFarmName = entry.Key;
+                var horseConfigs = entry.Value;
+
+                _monitor.Log($"Farm: {configFarmName}", LogLevel.Debug);
+
+                foreach (var horseConfig in horseConfigs)
+                {
+                    string configHorseName = horseConfig.Key;
+                    var configValues = horseConfig.Value;
+
+                    _monitor.Log($"  Horse: {configHorseName}, Config: {configValues}", LogLevel.Debug);
+                }
+            }
+
+            // Iterate over the horses for the current farm
+            foreach (var horse in horses)
             {
                 string horseName = horse.Name;
+                _monitor.Log($"2*********************************************'{horseName}' on farm '{farmName}'.", LogLevel.Debug);
 
-                if (!this._config.HorseConfigs[farmName].ContainsKey(horseName))
+                // Ensure the horse exists in the configuration for the current farm
+                if (!_config.HorseConfigs[farmName].ContainsKey(horseName))
                 {
-                    this._config.HorseConfigs[farmName][horseName] = new HorseConfig
+                    // Attempt to get the default horse configuration
+                    var defaultHorseConfig = _config.DefaultHorseConfig.ContainsKey("DefaultHorse")
+                        ? _config.DefaultHorseConfig["DefaultHorse"]
+                        : new HorseConfig
+                        {
+                            BaseSkin = "Vanilla",
+                            Pattern1 = "None",
+                            Pattern2 = "None",
+                            Pattern3 = "None",
+                            Hair = "Plain",
+                            SaddleColor = "Brown",
+                            Accessory1 = "None",
+                            Accessory2 = "None",
+                            Accessory3 = "None"
+                        };
+
+                    // Add the new horse configuration
+                    _config.HorseConfigs[farmName][horseName] = new HorseConfig
                     {
-                        BaseSkin = this._config.DefaultHorseConfig.BaseSkin,
-                        Pattern = this._config.DefaultHorseConfig.Pattern,
-                        Hair = this._config.DefaultHorseConfig.Hair,
-                        SaddleColor = this._config.DefaultHorseConfig.SaddleColor,
-                        MenuIcon = this._config.DefaultHorseConfig.MenuIcon
+                        BaseSkin = defaultHorseConfig.BaseSkin,
+                        Pattern1 = defaultHorseConfig.Pattern1,
+                        Pattern2 = defaultHorseConfig.Pattern2,
+                        Pattern3 = defaultHorseConfig.Pattern3,
+                        Hair = defaultHorseConfig.Hair,
+                        SaddleColor = defaultHorseConfig.SaddleColor,
+                        Accessory1 = defaultHorseConfig.Accessory1,
+                        Accessory2 = defaultHorseConfig.Accessory2,
+                        Accessory3 = defaultHorseConfig.Accessory3
                     };
 
-                    this._monitor.Log($"Added config for horse '{horseName}' on farm '{farmName}'.", LogLevel.Debug);
+                    _monitor.Log($"Added config for horse '{horseName}' on farm '{farmName}'.", LogLevel.Debug);
                 }
-
-                // Generate composite image
-                string baseSpritePath = _assetLoader.GetAssetPath("assets", "Base", "Base_", this._config.HorseConfigs[farmName][horseName].BaseSkin);
-                string patternOverlayPath = _assetLoader.GetAssetPath("assets", "Patterns", "Pattern_", this._config.HorseConfigs[farmName][horseName].Pattern);
-                string hairOverlayPath = _assetLoader.GetAssetPath("assets", "Hair", "Hair_", this._config.HorseConfigs[farmName][horseName].Hair);
-                string saddleOverlayPath = _assetLoader.GetAssetPath("assets", "Saddles", "Saddle_", this._config.HorseConfigs[farmName][horseName].SaddleColor);
-                string outputPath = Path.Combine(_helper.DirectoryPath, $"assets/Generated/{farmName}_{horseName}.png");
-                _compositeGenerator.GenerateAndSaveCompositeIcon(horseName, farmName, baseSpritePath, patternOverlayPath, hairOverlayPath, saddleOverlayPath, outputPath);
             }
 
-            this._helper.WriteConfig(this._config);
+            // Save composite icons and write updated config
+            _compositeGenerator.GenerateAndSaveCompositeIcon();
+            _helper.WriteConfig(_config);
         }
 
 

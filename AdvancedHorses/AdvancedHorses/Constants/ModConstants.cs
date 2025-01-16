@@ -6,6 +6,7 @@ public sealed class ModConstants
     public static List<string> ValidHairOptions = new List<string>();
     public static List<string> ValidSaddleColors = new List<string>();
     public static List<string> ValidPatterns = new List<string>();
+    public static List<string> ValidAccessories = new List<string>();
 
 
     // Valid horse skins
@@ -44,6 +45,12 @@ public sealed class ModConstants
             "Cream", "Blonde", "Fawn", "Brown", "Red", "Midnight", "Black", "Grey", "Silver",
             "White", "Vanilla", "BrightRed", "Orange", "Yellow", "Green", "Teal", "Turquoise",
             "Blue", "LightBlue", "Purple", "LightPurple", "Pink", "LightPink"
+        };
+
+    // Valid Accessory options
+    public static readonly List<string> DefaultAccessoryOptions = new List<string>
+        {
+            "None"
         };
 
     private ModConstants()

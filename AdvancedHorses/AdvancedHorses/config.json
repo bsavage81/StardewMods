@@ -25,12 +25,5 @@
                 "MenuIcon": true
             }
         }
-    },
-  "DefaultHorseConfig": {
-    "BaseSkin": "VoidPinto",
-    "Hair": "Plain",
-    "SaddleColor": "Brown",
-    "Pattern": "None",
-    "MenuIcon": true
-  }
+    }
 }

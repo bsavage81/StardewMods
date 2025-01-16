@@ -11,11 +11,10 @@ namespace AdvancedHorses
     public class ModEntry : Mod
     {
         private ConfigManager _configManager;
-        private AssetLoader _assetLoader;
-        private CompositeGenerator _compositeGenerator;
-        private HorseManager _horseManager;
-        private GmcmHandler _gmcmHandler;
-        private MultiplayerHandler _multiplayerHandler;
+        private AssetHelper _assetLoader;
+        private TextureManager _compositeGenerator;
+        private GMCMManager _gmcmHandler;
+        private MultiplayerManager _multiplayerHandler;
 
         public ModConfig Config { get; private set; }
 
@@ -25,18 +24,16 @@ namespace AdvancedHorses
             this.Config = helper.ReadConfig<ModConfig>() ?? new ModConfig();
 
             // Initialize components in the correct order
-            _assetLoader = new AssetLoader(Monitor, helper);
+            _assetLoader = new AssetHelper(this.ModManifest, Monitor, helper, Config);
             _assetLoader.LoadDynamicAllowedValues();
 
-            _compositeGenerator = new CompositeGenerator(Monitor, helper);
+            _compositeGenerator = new TextureManager(Monitor, helper, Config, _assetLoader);
 
-            _horseManager = new HorseManager(Monitor, helper, Config, _assetLoader);
+            _configManager = new ConfigManager(Monitor, helper, Config, _compositeGenerator, _assetLoader);
 
-            _configManager = new ConfigManager(Monitor, helper, Config, _compositeGenerator, _assetLoader, _horseManager);
+            _multiplayerHandler = new MultiplayerManager(this.ModManifest, helper, Monitor, Config, _configManager);
 
-            _multiplayerHandler = new MultiplayerHandler(this.ModManifest, helper, Monitor, Config, _configManager, _horseManager);
-
-            _gmcmHandler = new GmcmHandler(this.ModManifest, helper, Monitor, Config, _configManager, _horseManager, _multiplayerHandler);
+            _gmcmHandler = new GMCMManager(this.ModManifest, helper, Monitor, Config, _configManager, _compositeGenerator, _multiplayerHandler);
 
             // Register event handlers
                 // Gameloop Events
@@ -51,7 +48,6 @@ namespace AdvancedHorses
             this.Helper.ConsoleCommands.Add("refresh_horses", "Refresh all horse configurations and appearances.", (command, args) =>
             {
                 _configManager.InitializeOrUpdateHorseConfigs(); // Ensure configs are up-to-date
-                _horseManager.ProcessHorses(); // Reapply all configurations
                 this.Monitor.Log("Horse configurations refreshed.", LogLevel.Info);
             });
 
@@ -64,7 +60,6 @@ namespace AdvancedHorses
         private void OnSaveLoaded(object sender, SaveLoadedEventArgs e)
         {
             _configManager.InitializeOrUpdateHorseConfigs();
-            _horseManager.ProcessHorses();
 
             if (Context.IsMainPlayer)
             {
@@ -81,7 +76,6 @@ namespace AdvancedHorses
         private void OnPeerConnected(object sender, PeerConnectedEventArgs e)
         {
             _configManager.InitializeOrUpdateHorseConfigs();
-            _horseManager.ProcessHorses();
 
             if (Context.IsMainPlayer)
             {

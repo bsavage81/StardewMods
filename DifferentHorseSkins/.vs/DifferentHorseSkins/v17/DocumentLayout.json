@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\beauj\\Desktop\\GITHUB Repositopries\\bsavage81\\StardewMods\\DifferentHorseSkins\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1A5ADDFE-8FBF-4EAB-8207-D040B0597BA0}|DifferentHorseSkins\\DifferentHorseSkins.csproj|c:\\users\\beauj\\desktop\\github repositopries\\bsavage81\\stardewmods\\differenthorseskins\\differenthorseskins\\gmcm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A5ADDFE-8FBF-4EAB-8207-D040B0597BA0}|DifferentHorseSkins\\DifferentHorseSkins.csproj|solutionrelative:differenthorseskins\\gmcm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1A5ADDFE-8FBF-4EAB-8207-D040B0597BA0}|DifferentHorseSkins\\DifferentHorseSkins.csproj|c:\\users\\beauj\\desktop\\github repositopries\\bsavage81\\stardewmods\\differenthorseskins\\differenthorseskins\\modentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1A5ADDFE-8FBF-4EAB-8207-D040B0597BA0}|DifferentHorseSkins\\DifferentHorseSkins.csproj|solutionrelative:differenthorseskins\\modentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -12,10 +16,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\beauj\\.nuget\\packages\\pathoschild.stardew.modbuildconfig\\4.3.2\\build\\Pathoschild.Stardew.ModBuildConfig.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1A5ADDFE-8FBF-4EAB-8207-D040B0597BA0}|DifferentHorseSkins\\DifferentHorseSkins.csproj|c:\\users\\beauj\\desktop\\github repositopries\\bsavage81\\stardewmods\\differenthorseskins\\differenthorseskins\\gmcm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A5ADDFE-8FBF-4EAB-8207-D040B0597BA0}|DifferentHorseSkins\\DifferentHorseSkins.csproj|solutionrelative:differenthorseskins\\gmcm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -25,7 +25,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -41,7 +41,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "manifest.json",
               "DocumentMoniker": "C:\\Users\\beauj\\Desktop\\GITHUB Repositopries\\bsavage81\\StardewMods\\DifferentHorseSkins\\DifferentHorseSkins\\manifest.json",
               "RelativeDocumentMoniker": "DifferentHorseSkins\\manifest.json",
@@ -49,12 +49,11 @@
               "RelativeToolTip": "DifferentHorseSkins\\manifest.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-13T19:17:08.51Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-13T19:17:08.51Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Pathoschild.Stardew.ModBuildConfig.targets",
               "DocumentMoniker": "C:\\Users\\beauj\\.nuget\\packages\\pathoschild.stardew.modbuildconfig\\4.3.2\\build\\Pathoschild.Stardew.ModBuildConfig.targets",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\.nuget\\packages\\pathoschild.stardew.modbuildconfig\\4.3.2\\build\\Pathoschild.Stardew.ModBuildConfig.targets",
@@ -62,12 +61,11 @@
               "RelativeToolTip": "..\\..\\..\\..\\..\\.nuget\\packages\\pathoschild.stardew.modbuildconfig\\4.3.2\\build\\Pathoschild.Stardew.ModBuildConfig.targets",
               "ViewState": "AgIAAD0AAAAAAAAAAAAwwFYAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2025-01-13T19:06:06.685Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-13T19:06:06.685Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "GMCM.cs",
               "DocumentMoniker": "C:\\Users\\beauj\\Desktop\\GITHUB Repositopries\\bsavage81\\StardewMods\\DifferentHorseSkins\\DifferentHorseSkins\\GMCM.cs",
               "RelativeDocumentMoniker": "DifferentHorseSkins\\GMCM.cs",
@@ -75,17 +73,18 @@
               "RelativeToolTip": "DifferentHorseSkins\\GMCM.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAIwKAAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T03:04:45.659Z"
+              "WhenOpened": "2024-12-29T03:04:45.659Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "ModEntry.cs",
               "DocumentMoniker": "C:\\Users\\beauj\\Desktop\\GITHUB Repositopries\\bsavage81\\StardewMods\\DifferentHorseSkins\\DifferentHorseSkins\\ModEntry.cs",
               "RelativeDocumentMoniker": "DifferentHorseSkins\\ModEntry.cs",
               "ToolTip": "C:\\Users\\beauj\\Desktop\\GITHUB Repositopries\\bsavage81\\StardewMods\\DifferentHorseSkins\\DifferentHorseSkins\\ModEntry.cs",
               "RelativeToolTip": "DifferentHorseSkins\\ModEntry.cs",
-              "ViewState": "AgIAAPABAAAAAAAAAAAEwOoBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAJECAAAAAAAAAADgv6cCAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-21T19:15:22.935Z",
               "EditorCaption": ""

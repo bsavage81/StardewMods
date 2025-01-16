@@ -1,16 +1,24 @@
+using AdvancedHorses.Config;
 using Microsoft.Xna.Framework.Graphics;
 using StardewModdingAPI;
 using StardewValley;
+using StardewValley.Characters;
+using StardewValley.Extensions;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
 namespace AdvancedHorses.Helpers
 {
-    public class AssetLoader(IMonitor monitor, IModHelper helper)
+    public class AssetHelper(IManifest modManifest, IMonitor monitor, IModHelper helper,
+        ModConfig config)
     {
+        private readonly IManifest _modManifest = modManifest;
         private readonly IMonitor _monitor = monitor;
         private readonly IModHelper _helper = helper;
+
+        public ModConfig _config = config;
 
         public Texture2D LoadTexture(string path)
         {
@@ -50,6 +58,11 @@ namespace AdvancedHorses.Helpers
                 .ToList();
             ModConstants.ValidSaddleColors = saddleColors.Any() ? saddleColors : new List<string>(ModConstants.DefaultSaddleColors);
 
+            var accessories = GetValidFiles("assets/Accessories", "png")
+                .Select(name => name.Replace("Accessories_", ""))
+                .ToList();
+            ModConstants.ValidAccessories = accessories.Any() ? accessories : new List<string>(ModConstants.DefaultAccessoryOptions);
+
             _monitor.Log("Dynamic allowed values loaded successfully.", LogLevel.Debug);
         }
 
@@ -84,46 +97,58 @@ namespace AdvancedHorses.Helpers
             return null;
         }
 
-        public string GetCurrentFarmName()
+        public (string FarmName, List<Horse> Horses) GetFarmAndHorses()
         {
-            if (Game1.player?.farmName?.Value != null)
-                return Game1.player.farmName.Value;
+            List<Horse> horses = new List<Horse>();
 
-            return DeriveFarmAndHorseNamesFromAssets().FarmName;
-        }
+            // Attempt to retrieve horses from the farm location
+            Farm farm = Game1.locations.OfType<Farm>().FirstOrDefault();
+            string farmName = farm != null && !string.IsNullOrEmpty(farm.Name) ? farm.Name : GetCurrentDisplayedFarmName() ?? "DefaultFarm";
 
-        public string GetCurrentHorseName()
-        {
-            return DeriveFarmAndHorseNamesFromAssets().HorseName;
-        }
-
-        public (string FarmName, string HorseName) DeriveFarmAndHorseNamesFromAssets()
-        {
-            string generatedPath = Path.Combine(this._helper.DirectoryPath, "assets/Generated");
-
-            if (!Directory.Exists(generatedPath))
+            if (farm != null && !string.IsNullOrEmpty(farm.Name))
             {
-                this._monitor.Log($"Generated assets directory not found: {generatedPath}", LogLevel.Warn);
-                return ("DefaultFarm", "DefaultHorse");
-            }
-
-            var files = Directory.GetFiles(generatedPath, "*.png");
-            if (files.Length == 0)
-                return ("DefaultFarm", "DefaultHorse");
-
-            // Extract farm and horse names from the first valid file name
-            foreach (var file in files)
-            {
-                string fileName = Path.GetFileNameWithoutExtension(file);
-                string[] parts = fileName.Split('_');
-                if (parts.Length == 2) // Assumes format is "{FarmName}_{HorseName}.png"
+                foreach (NPC npc in farm.characters)
                 {
-                    this._monitor.Log($"Asset Farm Name {parts[0]}, Asset Horse Name {parts[1]}", LogLevel.Info);
-                    return (parts[0], parts[1]);
+                    if (npc is Horse horse)
+                    {
+                        horses.Add(horse);
+                    }
                 }
             }
 
-            return ("DefaultFarm", "DefaultHorse");
+            // Fallback to configuration if no in-world horses are found
+            if (!horses.Any() && _config.HorseConfigs != null && _config.HorseConfigs.TryGetValue(farmName, out var horseConfigs))
+            {
+                horses = horseConfigs.Keys.Select(name => new Horse(Guid.NewGuid(), 0, 0)
+                {
+                    Name = name,
+                    Sprite = new AnimatedSprite("Animals/horse", 0, 32, 32) // Placeholder sprite
+                }).ToList();
+            }
+
+            if (!horses.Any())
+            {
+                _monitor.Log($"No horses found for farm '{farmName}'.", LogLevel.Warn);
+            }
+
+            return (farmName, horses);
+        }
+
+
+        private string GetCurrentDisplayedFarmName()
+        {
+            var gmcmApi = _helper.ModRegistry.GetApi<IGenericModConfigMenuApi>("spacechase0.GenericModConfigMenu");
+            if (gmcmApi != null && gmcmApi.TryGetCurrentMenu(out var mod, out var page))
+            {
+                if (mod == _modManifest && !string.IsNullOrEmpty(page))
+                {
+                    _monitor.Log($"Currently displayed page: {page}", LogLevel.Debug);
+                    return page;
+                }
+            }
+
+            _monitor.Log("No valid farm configuration page is currently displayed.", LogLevel.Warn);
+            return null;
         }
     }
 }

@@ -22,6 +22,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Managers\HorseManager.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove="desktop.ini" />
 	</ItemGroup>
 

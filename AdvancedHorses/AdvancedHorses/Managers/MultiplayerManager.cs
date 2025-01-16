@@ -6,19 +6,17 @@ using System.Collections.Generic;
 
 namespace AdvancedHorses.Managers
 {
-    public class MultiplayerHandler(
+    public class MultiplayerManager(
         IManifest modManifest,
         IModHelper helper,
         IMonitor monitor,
         ModConfig config,
-        ConfigManager ConfigManager,
-        HorseManager horseManager)
+        ConfigManager ConfigManager)
     {
         private readonly IManifest _modManifest = modManifest;
         private readonly IMonitor _monitor = monitor;
         private readonly IModHelper _helper = helper;
         private readonly ConfigManager _configManager = ConfigManager;
-        private readonly HorseManager _horseManager = horseManager;
 
         public ModConfig _config = config;
 
@@ -45,7 +43,6 @@ namespace AdvancedHorses.Managers
             }
 
             this._configManager.InitializeOrUpdateHorseConfigs();
-            this._horseManager.ProcessHorses();
 
         }
 
@@ -81,7 +78,6 @@ namespace AdvancedHorses.Managers
 
             this._config.HorseConfigs[message.FarmName] = message.HorseConfigs;
             this._configManager.InitializeOrUpdateHorseConfigs();
-            this._horseManager.ProcessHorses();
         }
 
         public void OnPlayerConfigUpdateReceived(object sender, ModMessageReceivedEventArgs e)
