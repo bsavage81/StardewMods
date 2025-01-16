@@ -103,7 +103,7 @@ namespace AdvancedHorses.Helpers
 
             // Attempt to retrieve horses from the farm location
             Farm farm = Game1.locations.OfType<Farm>().FirstOrDefault();
-            string farmName = farm != null && !string.IsNullOrEmpty(farm.Name) ? farm.Name : GetCurrentDisplayedFarmName() ?? "DefaultFarm";
+            string farmName = farm != null && !string.IsNullOrEmpty(farm.Name) ? Game1.player.farmName.Value : GetCurrentDisplayedFarmName() ?? "DefaultFarm";
 
             if (farm != null && !string.IsNullOrEmpty(farm.Name))
             {

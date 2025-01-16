@@ -29,14 +29,10 @@ namespace AdvancedHorses.Managers
                 string configFarmName = entry.Key;
                 var horseConfigs = entry.Value;
 
-                _monitor.Log($"Farm: {configFarmName}", LogLevel.Debug);
-
                 foreach (var horseConfig in horseConfigs)
                 {
                     string configHorseName = horseConfig.Key;
                     var configValues = horseConfig.Value;
-
-                    _monitor.Log($"  Horse: {configHorseName}, Config: {configValues}", LogLevel.Debug);
                 }
             }
 
@@ -44,7 +40,6 @@ namespace AdvancedHorses.Managers
             foreach (var horse in horses)
             {
                 string horseName = horse.Name;
-                _monitor.Log($"2*********************************************'{horseName}' on farm '{farmName}'.", LogLevel.Debug);
 
                 // Ensure the horse exists in the configuration for the current farm
                 if (!_config.HorseConfigs[farmName].ContainsKey(horseName))
@@ -84,8 +79,8 @@ namespace AdvancedHorses.Managers
             }
 
             // Save composite icons and write updated config
-            _compositeGenerator.GenerateAndSaveCompositeIcon();
             _helper.WriteConfig(_config);
+            _compositeGenerator.GenerateAndSaveCompositeIcon();
         }
 
 
